@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.WebApi.Cors" Version="5.2.7" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    <PackageReference Include="WebApiContrib.Formatting.Jsonp" Version="3.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="HopClassLib">
+      <HintPath>..\..\HopClassLib\HopClassLib\bin\Debug\net5.0\HopClassLib.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

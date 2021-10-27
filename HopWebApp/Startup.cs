@@ -27,11 +27,6 @@ namespace HopWebApp
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddCors(options => options.AddPolicy("allowAll",
-                builder => builder.AllowAnyOrigin()
-                .AllowAnyMethod()
-                .AllowAnyHeader()));
-
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

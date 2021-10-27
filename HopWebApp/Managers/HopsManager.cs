@@ -46,8 +46,5 @@ namespace HopWebApp.Managers
 
 
 
-
-
-
     }
 }

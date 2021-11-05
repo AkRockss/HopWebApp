@@ -25,16 +25,22 @@ namespace HopWebApp.Controllers
 
         // GET: api/<HopsController>
         [Microsoft.AspNetCore.Mvc.HttpGet]
-        public IEnumerable<Hop> GetAll()
+        public IEnumerable<Hop> Get([FromQuery] string sort_by)
         {
-            return _manager.GetAll();
+            return _manager.GetAll(sort_by);
         }
 
         // GET api/<HopsController>/5
         [Microsoft.AspNetCore.Mvc.HttpGet("{id}")]
-        public Hop GetById(int id)
+        public Hop Get(int id)
         {
             return _manager.GetById(id);
+        }
+
+        [Microsoft.AspNetCore.Mvc.HttpGet("{price}")]
+        public List<Hop> GetByPrice(int price)
+        {
+            return _manager.GetByPrice(price);
         }
 
         // POST api/<HopsController>

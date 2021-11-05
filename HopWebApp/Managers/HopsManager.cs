@@ -19,9 +19,22 @@ namespace HopWebApp.Managers
         };
 
 
-        public List<Hop> GetAll()
+        public List<Hop> GetAll(string sortBy = null)
         {
-            return new List<Hop>(Data);
+            List<Hop> hopSearch = new List<Hop>(Data);
+
+            if (sortBy != null)
+            {
+                switch (sortBy.ToLower())
+                {
+                    case "alphaacid":
+                        hopSearch = hopSearch.OrderByDescending(hopSearch => hopSearch.AlphaAcid).ToList();
+                        break;
+
+                }
+            }
+
+            return hopSearch;
         }
 
         public Hop GetById(int id)
@@ -36,12 +49,24 @@ namespace HopWebApp.Managers
             return newHop;
         }
 
-        public Hop Delete(int id)
-        {
+        public Hop Delete(int id) { 
             Hop hop = Data.Find(hop1 => hop1.Id == id);
             if (hop == null) return null;
             Data.Remove(hop);
             return hop;
+        }
+
+        public List<Hop> GetByPrice(int price)
+        {
+            List<Hop> hopPrice = new List<Hop>(Data);
+            {
+                if (price != null)
+                {
+                    hopPrice = hopPrice.FindAll(hopPrice => hopPrice.Price != null);
+
+                }
+                return hopPrice;
+            }
         }
 
 
